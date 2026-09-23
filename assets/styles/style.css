@@ -1,3 +1,20 @@
+:root {
+    --background: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+
+
+    --primary: red;
+
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+
+
+    --normal: all .3s ease-in-out;
+    --fast: all .2s ease-in-out;
+    --faster: all .1s ease-in-out;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,11 +37,111 @@ a {
     text-decoration: none;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    transition: var(--normal);
+    color: var(--text-main);
+    background-color: var(--background);
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    background-color: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+    /* position: sticky;
+    top: 0;
+    z-index: 50; */
+}
+
+.header-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand .logo {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.site-nav .nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  transition: var(--fast);
+  border-radius: 14px;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+  background-color: var(--background);
+  transition: var(--faster);
+  text-decoration: none;
+}
+
+.btn-theme {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--background);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--normal);
+}
+
+.btn-theme:hover {
+  border-color: var(--primary);
+  background-color: var(--card);
+  transition: var(--normal);
+}
+
+main {
+  max-width: 1080px;
+  width: 100%;
+  margin: 24px auto;
+  padding: 0 16px;
+  flex: 1;
+}
+
 
 @media (min-width: 768px) {
+    .header-container {
+        width: 640px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
 }
 
 @media (min-width: 1024px){
-
+    .header-container {
+        width: 900px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
