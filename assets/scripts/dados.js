@@ -33,3 +33,23 @@ export async function loadOpportunities() {
         )
     })
 }
+
+export function saveProfile(candidate) {
+    
+}
+
+export function loadProfile() {
+    
+}
+
+export function clearProfile() {
+    
+}
+
+export function saveTheme(theme) {
+    
+}
+
+export function loadTheme() {
+    
+}
