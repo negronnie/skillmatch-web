@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "company": "Senai SC",
+    "role": "Desenvolvedor Fullstack",
+    "level": "Júnior",
+    "modality": "Híbrido (Florianópolis/SC)",
+    "remote": false,
+    "salary": 3800,
+    "description": "Desenvolvimento de aplicações web internas com foco em soluções responsivas e integração com serviços REST.",
+    "skills": [
+      { "skillName": "JavaScript", "minExperienceLevel": "Iniciante" },
+      { "skillName": "HTML", "minExperienceLevel": "Intermediário" },
+      { "skillName": "CSS", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Git", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Lógica de Programação", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Java", "minExperienceLevel": "Iniciante" },
+      { "skillName": "Spring Boot", "minExperienceLevel": "Iniciante" },
+      { "skillName": "MySQL", "minExperienceLevel": "Iniciante" },
+      { "skillName": "PostgreSQL", "minExperienceLevel": "Iniciante" }
+    ]
+  },
+  {
+    "id": 2,
+    "company": "Nubank",
+    "role": "Desenvolvedor Front-End React",
+    "level": "Júnior",
+    "modality": "Remoto",
+    "remote": true,
+    "timezone": "America/Sao_Paulo",
+    "salary": 5200,
+    "description": "Criação de interfaces web acessíveis, mobile-first e de alto impacto para a experiência de milhões de clientes.",
+    "skills": [
+      { "skillName": "JavaScript", "minExperienceLevel": "Iniciante" },
+      { "skillName": "HTML", "minExperienceLevel": "Intermediário" },
+      { "skillName": "CSS", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Git", "minExperienceLevel": "Iniciante" },
+      { "skillName": "React", "minExperienceLevel": "Iniciante" },
+      { "skillName": "REST APIs", "minExperienceLevel": "Iniciante" }
+    ]
+  },
+  {
+    "id": 3,
+    "company": "iFood",
+    "role": "Desenvolvedor Backend",
+    "level": "Pleno",
+    "modality": "Remoto",
+    "remote": true,
+    "timezone": "America/Sao_Paulo",
+    "salary": 7500,
+    "description": "Sustentação e evolução de microsserviços de alta disponibilidade, mensageria e processamento de pedidos em tempo real.",
+    "skills": [
+      { "skillName": "Java", "minExperienceLevel": "Avançado" },
+      { "skillName": "Spring Boot", "minExperienceLevel": "Intermediário" },
+      { "skillName": "MySQL", "minExperienceLevel": "Intermediário" },
+      { "skillName": "PostgreSQL", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Docker", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Kafka", "minExperienceLevel": "Intermediário" },
+      { "skillName": "AWS", "minExperienceLevel": "Intermediário" },
+      { "skillName": "OAuth2", "minExperienceLevel": "Intermediário" },
+      { "skillName": "JWT", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Redis", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Jenkins", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Kubernetes", "minExperienceLevel": "Intermediário" }
+    ]
+  },
+  {
+    "id": 4,
+    "company": "RD Station",
+    "role": "Desenvolvedor Front-End Web",
+    "level": "Júnior",
+    "modality": "Híbrido (Florianópolis/SC)",
+    "remote": false,
+    "salary": 4500,
+    "description": "Construção de componentes reutilizáveis, páginas de conversão e dashboards com ênfase em semântica, SEO e performance.",
+    "skills": [
+      { "skillName": "HTML", "minExperienceLevel": "Intermediário" },
+      { "skillName": "CSS", "minExperienceLevel": "Intermediário" },
+      { "skillName": "JavaScript", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Git", "minExperienceLevel": "Iniciante" },
+      { "skillName": "Lógica de Programação", "minExperienceLevel": "Iniciante" },
+      { "skillName": "REST APIs", "minExperienceLevel": "Iniciante" }
+    ]
+  },
+  {
+    "id": 5,
+    "company": "TOTVS",
+    "role": "Desenvolvedor de Software Júnior",
+    "level": "Júnior",
+    "modality": "Remoto",
+    "remote": true,
+    "timezone": "America/Sao_Paulo",
+    "salary": 4200,
+    "description": "Participação no desenvolvimento de sistemas de gestão empresarial, integrando interfaces modernas com bancos de dados relacionais.",
+    "skills": [
+      { "skillName": "JavaScript", "minExperienceLevel": "Iniciante" },
+      { "skillName": "HTML", "minExperienceLevel": "Iniciante" },
+      { "skillName": "CSS", "minExperienceLevel": "Iniciante" },
+      { "skillName": "Git", "minExperienceLevel": "Iniciante" },
+      { "skillName": "MySQL", "minExperienceLevel": "Iniciante" },
+      { "skillName": "Lógica de Programação", "minExperienceLevel": "Intermediário" }
+    ]
+  },
+  {
+    "id": 6,
+    "company": "Mercado Livre",
+    "role": "Front-End & Design Systems",
+    "level": "Júnior",
+    "modality": "Remoto",
+    "remote": true,
+    "timezone": "America/Sao_Paulo",
+    "salary": 5800,
+    "description": "Implementação fiel de layouts e protótipos de design com atenção minuciosa aos detalhes de acessibilidade WCAG e padrões Mobile-First.",
+    "skills": [
+      { "skillName": "HTML", "minExperienceLevel": "Avançado" },
+      { "skillName": "CSS", "minExperienceLevel": "Avançado" },
+      { "skillName": "JavaScript", "minExperienceLevel": "Intermediário" },
+      { "skillName": "UX-UI", "minExperienceLevel": "Intermediário" },
+      { "skillName": "Git", "minExperienceLevel": "Iniciante" }
+    ]
+  }
+]
