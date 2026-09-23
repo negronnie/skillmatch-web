@@ -1,4 +1,4 @@
-import { Opportunity, RemoteOpportunity } from "./motor";
+import { Candidate, Opportunity, RemoteOpportunity, Skill } from "./motor";
 
 const urlVagas = "./assets/data/vagas.json";
 
@@ -48,12 +48,31 @@ export function saveProfile(candidate) {
         localStorage.setItem("skillmatch.profile", parsedData);
     } catch (error) {
         console.log("Não foi possivel salvar os dados: ", error)
-    }
-    
+    }  
 }
 
 export function loadProfile() {
-    
+    try {
+        const rawData = localStorage.getItem("skillmatch.profile");
+        if (!rawData) return null;
+
+        const parsedData = JSON.parse(rawData);
+        if (!parsedData) return null;
+
+        const listSkills = parsedData.skills.map((sk) => {
+            new Skill(sk.name, sk.experienceYears)
+        })
+
+        return new Candidate(
+            parsedData.name,
+            parsedData.interestArea,
+            listSkills,
+            parsedData.experienceYears
+        )
+
+    } catch (error) {
+       console.log("Não foi possivel ler os dados: ", error) 
+    }
 }
 
 export function clearProfile() {
