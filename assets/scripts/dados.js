@@ -35,6 +35,7 @@ export async function loadOpportunities() {
 }
 
 const profileKey = "skillmatch.profile";
+const themeKey = "skillmatch.theme";
 
 export function saveProfile(candidate) {
     try {
@@ -87,9 +88,17 @@ export function clearProfile() {
 }
 
 export function saveTheme(theme) {
-    
+    try {
+        localStorage.setItem(themeKey, theme)
+    } catch (error) {
+        console.log("Não foi possivel salvar os dados: ", error) 
+    }
 }
 
 export function loadTheme() {
-    
+    try {
+        return localStorage.getItem(themeKey) || "light";
+    } catch (error) {
+        return "light"; 
+    }  
 }
