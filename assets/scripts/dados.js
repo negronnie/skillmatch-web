@@ -34,6 +34,8 @@ export async function loadOpportunities() {
     })
 }
 
+const profileKey = "skillmatch.profile";
+
 export function saveProfile(candidate) {
     try {
         const parsedData = JSON.stringify({
@@ -45,7 +47,7 @@ export function saveProfile(candidate) {
                 experienceYears: sk.experienceYears
             }))
         })
-        localStorage.setItem("skillmatch.profile", parsedData);
+        localStorage.setItem(profileKey, parsedData);
     } catch (error) {
         console.log("Não foi possivel salvar os dados: ", error)
     }  
@@ -53,7 +55,7 @@ export function saveProfile(candidate) {
 
 export function loadProfile() {
     try {
-        const rawData = localStorage.getItem("skillmatch.profile");
+        const rawData = localStorage.getItem(profileKey);
         if (!rawData) return null;
 
         const parsedData = JSON.parse(rawData);
@@ -76,6 +78,11 @@ export function loadProfile() {
 }
 
 export function clearProfile() {
+    try {
+        localStorage.removeItem(profileKey)
+    } catch (error) {
+        console.log("Erro ao limpar dados: ", error);
+    }
     
 }
 
