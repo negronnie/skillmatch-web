@@ -8,3 +8,5 @@ export const elementos = {
   btnAddSkill: document.getElementById("btn-add-skill"),
   skillsGrid: document.getElementById("skills-grid")
 };
+
+

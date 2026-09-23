@@ -296,6 +296,16 @@ main {
     margin-top: 16px;
 }
 
+.opportunities-section {
+    margin-top: 24px;
+}
+.opportunities-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
 footer {
     background-color: var(--card);
     border-top: 1px solid var(--border);
