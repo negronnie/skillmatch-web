@@ -1,4 +1,4 @@
-class Skill {
+export class Skill {
     constructor(name, experienceYears) {
         this.name = name;
         this.experienceYears = experienceYears;
@@ -18,7 +18,7 @@ class Skill {
     }
 }
 
-class Candidate {
+export class Candidate {
     constructor(name, interestArea, skills, experience) {
         this.name = name;
         this.interestArea = interestArea;
@@ -39,21 +39,24 @@ class Candidate {
     }
 }
 
-function compareLevels(levelA, levelB) {
+export function compareLevels(levelA, levelB) {
     const levels = ["Iniciante", "Intermediário", "Avançado", "Expert"];
     return levels.indexOf(levelA) - levels.indexOf(levelB);
 }
 
 class Opportunity {
-    constructor(company, role, skills, level) {
+    constructor(id, company, role, skills, level, salary, modality) {
+        this.id = Number(id)
         this.company = company;
         this.role = role;
         this.skills = skills;
         this.level = level;
+        this.salary = salary;
+        this.modality = modality;
     }
 }
 
-class RemoteOpportunity extends Opportunity {
+export class RemoteOpportunity extends Opportunity {
     constructor(company, role, skills, level, timezone) {
         super(company, role, skills, level);
         this.remote = true;
@@ -61,100 +64,13 @@ class RemoteOpportunity extends Opportunity {
     }
 }
 
-const candidate = new Candidate(
-    'Lucas', 
-    'Fullstack', 
-    [
-        new Skill('JavaScript', 1),
-        new Skill('HTML', 3),
-        new Skill('CSS', 3),
-        new Skill('Git', 3),
-        new Skill('Lógica de Programação', 1),
-        new Skill('Java', 1),
-        new Skill('Spring Boot', 0.8),
-        new Skill('MySQL', 1),
-        new Skill('PostgreSQL', 0.7),
-        new Skill('REST APIs', 0.8),
-        new Skill('Flyway', 0.8),
-        new Skill('Docker', 1.4),
-        new Skill('Swagger', 0.6),
-        new Skill('YAML', 1.4),
-        new Skill('JUnit', 0.9),
-        new Skill('Mockito', 0.9),
-        new Skill('Hamcrest', 0.9),
-        new Skill('TestContainers', 0.8),
-        new Skill('RestAssured', 0.8),
-        new Skill('JaCoCo', 0.8),
-        new Skill('SonarQube', 1),
-        new Skill('Product Management', 1.8),
-        new Skill('Scrum', 1.8),
-        new Skill('Kanban', 1.8),
-        new Skill('UX-UI', 1.8)
-    ],
-    3
-)
-
-const opportunities = [
-    new Opportunity(
-        'Senai SC',
-        'Desenvolvedor Fullstack',
-        [
-            { skillName: 'JavaScript', minExperienceLevel: 'Iniciante' },
-            { skillName: 'HTML', minExperienceLevel: 'Intermediário' },
-            { skillName: 'CSS', minExperienceLevel: 'Intermediário' },
-            { skillName: 'Git', minExperienceLevel: 'Intermediário' },
-            { skillName: 'Lógica de Programação', minExperienceLevel: 'Intermediário' },
-            { skillName: 'Java', minExperienceLevel: 'Iniciante' },
-            { skillName: 'Spring Boot', minExperienceLevel: 'Iniciante' },
-            { skillName: 'MySQL', minExperienceLevel: 'Iniciante' },
-            { skillName: 'PostgreSQL', minExperienceLevel: 'Iniciante' }  
-        ],
-        'Júnior'
-    ),
-
-    new Opportunity(
-        'Nubank',
-        'Desenvolvedor React',
-        [
-            {skillName: 'JavaScript', minExperienceLevel: 'Iniciante'},
-            {skillName: 'React', minExperienceLevel: 'Iniciante'},
-            {skillName: 'HTML', minExperienceLevel: 'Intermediário'},
-            {skillName: 'CSS', minExperienceLevel: 'Intermediário'},
-            {skillName: 'JavaScript', minExperienceLevel: 'Iniciante'},
-            {skillName: 'JavaScript', minExperienceLevel: 'Iniciante'},
-        ],
-        'Júnior'
-    ),
-
-    new RemoteOpportunity(
-        'iFood',
-        'Desenvolvedor Backend',
-        [
-            {skillName: 'Java', minExperienceLevel: 'Avançado'},
-            {skillName: 'Spring Boot', minExperienceLevel: 'Intermediário'},
-            {skillName: 'MySQL', minExperienceLevel: 'Intermediário'},
-            {skillName: 'PostgreSQL', minExperienceLevel: 'Intermediário'},
-            {skillName: 'Docker', minExperienceLevel: 'Intermediário'},
-            {skillName: 'Kafka', minExperienceLevel: 'Intermediário'},
-            {skillName: 'AWS', minExperienceLevel: 'Intermediário'},
-            {skillName: 'OAuth2', minExperienceLevel: 'Intermediário'},
-            {skillName: 'JWT', minExperienceLevel: 'Intermediário'},
-            {skillName: 'Redis', minExperienceLevel: 'Intermediário'},
-            {skillName: 'Jenkins', minExperienceLevel: 'Intermediário'},
-            {skillName: 'Kubernetes', minExperienceLevel: 'Intermediário'},
-        ],
-        'Pleno',
-        'America/Sao_Paulo'
-    )
-]
-
-function calculateMatchScore(candidate, opportunity) {
+export function calculateMatchScore(candidate, opportunity) {
     const matched = opportunity.skills.filter((requirement) => candidate.matchRequirement(requirement));
     const score = (matched.length / opportunity.skills.length) * 100;
     return score;
 }
 
-function classifyCompatibility(score) {
+export function classifyCompatibility(score) {
     if (score >= 80) {
         return "Alta";
     } else if (score >= 50) {
@@ -164,7 +80,7 @@ function classifyCompatibility(score) {
     }
 }
 
-function listMissingSkills(candidate, opportunity) {
+export function listMissingSkills(candidate, opportunity) {
     return opportunity.skills
         .filter((requirement) => !candidate.matchRequirement(requirement))
         .map((requirement) => {
@@ -184,6 +100,19 @@ function listMissingSkills(candidate, opportunity) {
                 };
             }
         });
+}
+
+export function listMatchedSkills(candidate, opportunity) {
+  return opportunity.skills
+    .filter((requirement) => candidate.matchRequirement(requirement))
+    .map((requirement) => {
+      const skill = candidate.getSkill(requirement.skillName);
+      return {
+        skillName: requirement.skillName,
+        experienceLevel: skill.experienceLevel(),
+        minExperienceLevel: requirement.minExperienceLevel
+      };
+    });
 }
 
 function showMissingSkill(item) {
