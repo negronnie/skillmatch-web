@@ -140,7 +140,7 @@ main {
 }
 
 .hero {
-    height: 80vh;
+    /* height: 90vh; */
 }
 
 .section-title {
@@ -152,6 +152,67 @@ main {
 .section-subtitle{
     color: var(--text-muted);
     font-size: 16px;
+}
+
+.form-candidate{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-label{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.form-input, .form-select{
+    padding: 9px 12px;
+    border: 1px solid var(--text-main);
+    background-color: var(--card);
+    color: var(--text-main);
+    width: 100%;
+    transition: var(--normal);
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+.form-fieldset {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  background-color: var(--card);
+}
+
+.form-legend {
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0 8px;
+  color: var(--text-main);
+}
+
+.flex1{
+    flex: 1;
+}
+
+.form-select{
+
+}
+
+.form-error {
+
 }
 
 

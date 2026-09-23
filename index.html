@@ -41,8 +41,35 @@
             <div class="section-header">
                 <h2>Candidato</h2>
             </div>
-            <form id="form-candidato">
-                
+            <form id="form-candidato" class="form-candidate">
+
+                <fieldset class="form-fieldset">
+                    <legend class="form-legend">Informações Pessoais e Profissionais</legend>
+                    <div class="form-row">
+                        <div class="form-group flex1">
+                            <label for="candidate-name" class="form-label">Nome Completo</label>
+                            <input type="text" id="candidade-name" class="form-input">
+                        </div>
+
+                        <div class="form-group flex1">
+                            <label for="candidate-area" class="form-label">Área de Interesse</label>
+                            <select name="area" id="candidate-area" class="form-select" required>
+                                <option value="">Selecione uma área...</option>
+                                <option value="front-end">Front-End</option>
+                                <option value="back-end">Back-End</option>
+                                <option value="fullstack">Fullstack</option>
+                                <option value="ui-ux">UI/UX &amp; Design Systems</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="candidate-experience" class="form-label">Experiência Total (Anos)</label>
+                            <input type="number" id="candidade-experience" class="form-input">
+                        </div>
+                    </div>
+                </fieldset>
+
+
             </form>
         </section>
 
