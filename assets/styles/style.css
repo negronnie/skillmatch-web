@@ -78,54 +78,54 @@ header {
 }
 
 .site-nav .nav-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
 }
 
 .nav-link {
-  color: var(--text-muted);
-  transition: var(--fast);
-  border-radius: 14px;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 6px 10px;
+    color: var(--text-muted);
+    transition: var(--fast);
+    border-radius: 14px;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 6px 10px;
 }
 
 .nav-link:hover {
-  color: var(--primary);
-  background-color: var(--background);
-  transition: var(--faster);
-  text-decoration: none;
+    color: var(--primary);
+    background-color: var(--background);
+    transition: var(--faster);
+    text-decoration: none;
 }
 
 .btn-theme {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background-color: var(--background);
-  color: var(--text-main);
-  border: 1px solid var(--border);
-  padding: 6px 12px;
-  border-radius: 100px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  transition: var(--normal);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--background);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: var(--normal);
 }
 
 .btn-theme:hover {
-  border-color: var(--primary);
-  background-color: var(--card);
-  transition: var(--normal);
+    border-color: var(--primary);
+    background-color: var(--card);
+    transition: var(--normal);
 }
 
 main {
-  max-width: 1024px;
-  width: 100%;
-  margin: 24px auto;
-  padding: 0 16px;
+    max-width: 1024px;
+    width: 100%;
+    margin: 24px auto;
+    padding: 0 16px;
 }
 .section-header {
     margin-bottom: 20px;
@@ -180,7 +180,7 @@ main {
 
 .form-input, .form-select{
     padding: 9px 12px;
-    border: 1px solid var(--text-main);
+    border: 1px solid var(--border);
     background-color: var(--card);
     color: var(--text-main);
     width: 100%;
@@ -190,29 +190,56 @@ main {
 }
 
 .form-fieldset {
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px;
-  background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    background-color: var(--card);
 }
 
 .form-legend {
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 0 8px;
-  color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0 8px;
+    color: var(--text-main);
 }
 
-.flex1{
+.full-flex {
     flex: 1;
 }
 
-.form-select{
-
+.half-flex {
+    flex: 0.5;
 }
+
 
 .form-error {
 
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background-color: var(--card);
+    transition: var(--normal);
+    }
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 48px;
+    padding: 10px;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    background-color: var(--card);
+    margin-top: 16px;
 }
 
 
@@ -221,6 +248,9 @@ main {
         width: 640px;
         flex-direction: row;
         justify-content: space-between;
+    }
+    .form-row {
+        flex-direction: row;
     }
 
 }
