@@ -57,8 +57,8 @@ class Opportunity {
 }
 
 export class RemoteOpportunity extends Opportunity {
-    constructor(company, role, skills, level, timezone) {
-        super(company, role, skills, level);
+    constructor(id, company, role, skills, level, salary, timezone) {
+        super(id, company, role, skills, level, salary);
         this.remote = true;
         this.timezone = timezone;
     }
@@ -180,14 +180,14 @@ export function analysisCounter(){
     }
 }
 
-function retrieveOpportunities(opportunities) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if(!opportunities || opportunities.length === 0) {
-                reject("Nenhuma vaga encontrada.");
-            } else {
-                resolve(opportunities);
-            }
-        }, 3000);
-    });
-}
+// function retrieveOpportunities(opportunities) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if(!opportunities || opportunities.length === 0) {
+//                 reject("Nenhuma vaga encontrada.");
+//             } else {
+//                 resolve(opportunities);
+//             }
+//         }, 3000);
+//     });
+// }
