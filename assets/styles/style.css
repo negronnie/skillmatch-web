@@ -5,8 +5,8 @@
     --border-focus: #64748b;
 
 
-    --primary: #ff0000;
-    --primary-hover: #fc4a4a;
+    --primary: #0e5714;
+    --primary-hover: #2e7734;
 
     --text-main: #0f172a;
     --text-muted: #64748b;
@@ -306,6 +306,87 @@ main {
     margin-bottom: 18px;
 }
 
+.highlight-section {
+    margin-bottom: 24px;
+}
+
+.highlight-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+}
+
+.highlight-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.highlight-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.highlight-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.highlight-metric {
+    background-color: var(--card);
+    border: 1px solid var(--border-focus);
+    padding: 14px;
+    border-radius: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.metric-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.metric-value {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.highlight-recommendation {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 14px;
+    flex: 1;
+}
+
+.recommendation-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.recommendation-text {
+    font-size: 16px;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 90px;
+  border: 1px solid currentColor;
+}
+
 footer {
     background-color: var(--card);
     border-top: 1px solid var(--border);
@@ -333,6 +414,11 @@ footer {
     font-size: 14px;
 }
 
+.hidden {
+  display: none !important;
+}
+
+
 @media (min-width: 768px) {
     .header-container {
         width: 640px;
@@ -340,6 +426,9 @@ footer {
         justify-content: space-between;
     }
     .form-row {
+        flex-direction: row;
+    }
+    .highlight-body {
         flex-direction: row;
     }
     .footer-container {
