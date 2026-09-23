@@ -35,6 +35,20 @@ export async function loadOpportunities() {
 }
 
 export function saveProfile(candidate) {
+    try {
+        const parsedData = JSON.stringify({
+            name: candidate.name,
+            interestArea: candidate.interestArea,
+            skills: candidate.skills.map(
+                (sk) => ({
+                name: sk.name,
+                experienceYears: sk.experienceYears
+            }))
+        })
+        localStorage.setItem("skillmatch.profile", parsedData);
+    } catch (error) {
+        console.log("Não foi possivel salvar os dados: ", error)
+    }
     
 }
 
