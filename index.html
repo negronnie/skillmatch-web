@@ -46,12 +46,12 @@
                 <fieldset class="form-fieldset">
                     <legend class="form-legend">Informações Pessoais e Profissionais</legend>
                     <div class="form-row">
-                        <div class="form-group full-flex">
+                        <div class="form-group full-flex bottom-flex">
                             <label for="candidate-name" class="form-label">Nome Completo</label>
-                            <input type="text" id="candidade-name" class="form-input" placeholder="Ex: Lucas">
+                            <input type="text" id="candidate-name" class="form-input" placeholder="Ex: Lucas">
                         </div>
 
-                        <div class="form-group full-flex">
+                        <div class="form-group full-flex bottom-flex">
                             <label for="candidate-area" class="form-label">Área de Interesse</label>
                             <select name="area" id="candidate-area" class="form-select" required>
                                 <option value="">Selecione uma área...</option>
@@ -72,25 +72,32 @@
                 <fieldset class="form-fieldset">
                     <legend class="form-legend">Habilidades e Tempo de Prática</legend>
                     <div class="form-row">
-                        <div class="form-group full-flex">
+                        <div class="form-group full-flex bottom-flex">
                             <label for="skill-name-input" class="form-label" >Tecnologia / Habilidade</label>
                             <input type="text" id="skill-name-input" class="form-input" autocomplete="off" placeholder="Ex: JavaScript, HTML, React, CSS, Git...">
                         </div>
 
-                        <div class="form-group half-flex">
+                        <div class="form-group half-flex bottom-flex">
                             <label for="candidate-area" class="form-label">Tempo de Experiência</label>
                             <input type="number" id="candidade-experience" class="form-input" placeholder="Ex: 2">
                         </div>
 
-                        <div class="form-group half-flex">
-                            <button id="btn-add-skill" class="btn">Adicionar Habilidade</button>
+                        <div class="form-group half-flex bottom-flex">
+                            <button id="btn-add-skill" class="btn bottom-flex">Adicionar Habilidade</button>
                         </div>
                     </div>
 
                     <div class="skills-grid" class="skills-grid"></div>
                 </fieldset>
 
-
+                <div class="form-actions">
+                    <button type="submit" id="btn-submit" class="btn btn-primary">
+                        Calcular Compatibilidade
+                    </button>
+                    <button type="button" id="btn-clear-profile" class="btn btn-outline">
+                        Limpar Perfil Salvo
+                    </button>
+                </div>
             </form>
         </section>
 
@@ -98,7 +105,7 @@
 
         
         <section id="destaque">
-        
+            
         </section>
 
         <section id="vagas" class="section-card">
@@ -106,7 +113,10 @@
                 <h2>Vagas</h2>
             </div>
         </section>
+
+
     </main>
+    
     <footer>
 
     </footer>
