@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talent Catcher - Você compatível com o mercado!</title>
     <meta name="description" content="Compare as vagas disponíveis com o seu currículo, descubra seu índice de compatibilidade e receba recomendações personalizadas de estudo.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 <body>
@@ -135,7 +136,56 @@
                 </div>
             </div>
 
-            <div id="vagas-grid" class="vagas-grid"></div>
+            <div id="vagas-grid" class="opportunity-grid">
+                <article class="opportunity-card">
+                    <div class="card-top">
+                        <div>
+                            <span class="card-company">Mercado Livre</span>
+                            <h3 id="vaga-titulo" class="card-role">Front-End &amp; Design Systems</h3>
+                        </div>
+                        <span class="badge badge-media" title="Classificação de compatibilidade">Média</span>
+                    </div>
+
+                    <div class="card-meta-list">
+                        <span class="meta-pill remote">Remoto</span>
+                        <span class="meta-pill">Nível: Júnior</span>
+                        <span class="meta-pill">Fuso: America - São Paulo</span>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span>Índice de Compatibilidade</span>
+                            <span>60.0%</span>
+                        </div>
+                        <div class="progress-track" role="progressbar" aria-valuenow="60.0" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar media" style="width: 60%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-skills-block">
+                        <span class="skills-subheading">Habilidades Atendidas (3)</span>
+                        <div class="skills-pills">
+                            <span class="skill-pill matched" title="Atendido: Avançado">HTML (Avançado)</span>
+                            <span class="skill-pill matched" title="Atendido: Avançado">CSS (Avançado)</span>
+                            <span class="skill-pill matched" title="Atendido: Intermediário">JavaScript (Intermediário)</span>
+                        </div>
+                    </div>
+
+                    <div class="card-skills-block">
+                        <span class="skills-subheading">Habilidades Faltantes / Aprimorar (2)</span>
+                        <div class="skills-pills">
+                            <span class="skill-pill missing" title="Ausente: Requer Intermediário">UX-UI (Requer Intermediário)</span>
+                            <span class="skill-pill missing" title="Ausente: Requer Iniciante">Git (Requer Iniciante)</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <span class="card-salary">R$ 5.800,00</span>
+                        <span class="meta-pill">5 requisitos</span>
+                    </div>
+                </article>
+            </div>
+
         </section>
     </main>
     

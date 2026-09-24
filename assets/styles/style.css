@@ -1,5 +1,6 @@
 :root {
     --background: #f8fafc;
+    --background-subtle: #f1f5f9;
     --card: #ffffff;
     --border: #e2e8f0;
     --border-focus: #64748b;
@@ -10,6 +11,13 @@
 
     --text-main: #0f172a;
     --text-muted: #64748b;
+
+    --color-alta: #059669;
+    --color-alta-bg: #ecfdf5;
+    --color-media: #d97706;
+    --color-media-bg: #fffbeb;
+    --color-baixa: #dc2626;
+    --color-baixa-bg: #fef2f2;
 
     --slower: all .8s ease-in-out;
     --slow: all .5s ease-in-out;
@@ -257,7 +265,7 @@ main {
 }
 
 .btn-secondary {
-    background-color: var(--bg-subtle);
+    background-color: var(--background-subtle);
     color: var(--text-main);
     border-color: var(--border-color);
 }
@@ -273,7 +281,7 @@ main {
 }
 
 .btn-outline:hover {
-    background-color: var(--bg-subtle);
+    background-color: var(--background-subtle);
     color: var(--text-main);
 }
 
@@ -294,6 +302,59 @@ main {
     border-radius: 12px;
     background-color: var(--card);
     margin-top: 16px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--background-subtle);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 12px;
+    transition: var(--normal);
+}
+
+.skill-item:hover {
+    border-color: var(--primary);
+}
+
+.skill-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-main);
+}
+
+.skill-detail {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.btn-remove-skill {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--color-baixa);
+    font-weight: bold;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 11px;
+    padding: 0;
+    transition: var(--normal);
+}
+
+.btn-remove-skill:hover {
+    background-color: var(--color-baixa);
+    border-color: var(--color-baixa);
+    color: #ffffff;
 }
 
 .opportunities-section {
@@ -414,10 +475,208 @@ footer {
     font-size: 14px;
 }
 
+.opportunity-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.opportunity-card {
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: var(--normal);
+}
+
+.opportunity-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.card-company {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-role {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 2px;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 18px;
+  border: 1px solid currentColor;
+}
+
+.badge-alta {
+  color: var(--color-alta);
+  background-color: var(--color-alta-bg);
+  border-color: #a7f3d0;
+}
+
+.badge-media {
+  color: var(--color-media);
+  background-color: var(--color-media-bg);
+  border-color: #fde68a;
+}
+
+.badge-baixa {
+  color: var(--color-baixa);
+  background-color: var(--color-baixa-bg);
+  border-color: #fecaca;
+}
+
+.card-meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.meta-pill {
+  font-size: 12px;
+  background-color: var(--background-subtle);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.meta-pill.remote {
+  border-color: #bfdbfe;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  font-weight: 600;
+}
+
+.card-description {
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.progress-track {
+  height: 8px;
+  background-color: var(--background-subtle);
+  border-radius: 90px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 90px;
+  transition: width 0.4s ease;
+}
+
+.progress-bar.alta {
+  background-color: var(--color-alta);
+}
+
+.progress-bar.media {
+  background-color: var(--color-media);
+}
+
+.progress-bar.baixa {
+  background-color: var(--color-baixa);
+}
+
+.card-skills-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.skills-subheading {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.skills-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.skill-pill {
+  font-size: 14px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: var(--background-subtle);
+  color: var(--text-main);
+}
+
+.skill-pill.matched {
+  border-color: #a7f3d0;
+  color: var(--color-alta);
+  background-color: var(--color-alta-bg);
+}
+
+.skill-pill.missing {
+  border-color: #fecaca;
+  color: var(--color-baixa);
+  background-color: var(--color-baixa-bg);
+}
+
+.skill-pill.insufficient {
+  border-color: #fde68a;
+  color: var(--color-media);
+  background-color: var(--color-media-bg);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 18px;
+}
+
+.card-salary {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
 .hidden {
   display: none !important;
 }
-
 
 @media (min-width: 768px) {
     .header-container {
@@ -425,18 +684,35 @@ footer {
         flex-direction: row;
         justify-content: space-between;
     }
+
     .form-row {
         flex-direction: row;
     }
+
     .highlight-body {
         flex-direction: row;
     }
+
+    .opportunity-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .opportunity-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .opportunity-card {
+        flex: 0 1 calc(50% - 8px);
+    }
+
     .footer-container {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
     }
-
 }
 
 @media (min-width: 1024px){
