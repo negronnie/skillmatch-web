@@ -12,12 +12,13 @@
     <header>
         <div class="header-container">
             <div class="brand">
-                <a href="#">
-                    <img src="https://avatars.githubusercontent.com/u/24555177" class="logo" alt="Logo do Talent Catcher">
+                <a href="#hero">
+                    <img src="./assets/img/logo-full.svg" class="logo" alt="Logo do Talent Catcher">
                 </a>
             </div>
             <nav class="site-nav">
                 <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link">Início</a></li>
                     <li><a href="#candidato" class="nav-link">Candidato</a></li>
                     <li><a href="#vagas" class="nav-link">Vagas</a></li>
                 </ul>
@@ -28,17 +29,49 @@
         </div>
     </header>
 
-    <main id="principal">
-        
-        <section id="hero" class=" hero">
-            <div class="section-header">
-                <h1 class="section-title" id="main-title">Talent Catcher: Você compatível com o mercado!</h1>
-                <p class="section-subtitle">
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="section-title hero-title" id="main-title">
+                    Talent Catcher: <span class="hero-gradient-text">Você compatível com o mercado!</span>
+                </h1>
+
+                <p class="hero-subtitle section-subtitle">
                     Cadastre suas informações profissionais e adicione suas habilidades. 
-                    Seu perfil será comparado com as exigências do mercado para calcular seu percentual de compatibilidade.
+                    Nosso sistema compara seu perfil com as exigências do mercado para calcular seu percentual de compatibilidade e sugerir planos de desenvolvimento personalizados.
                 </p>
+
+                <div class="hero-actions">
+                    <a href="#candidato" class="btn btn-primary hero-btn-primary">
+                        <span>Preencher Meu Perfil</span>
+                        <svg class="hero-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#vagas" class="btn btn-outline hero-btn-secondary">
+                        <span>Explorar Vagas</span>
+                    </a>
+                </div>
             </div>
-        </section>
+
+            <div class="hero-visual">
+                <div class="hero-visual-card">
+                    <div class="hero-visual-glow" aria-hidden="true"></div>
+                    <img 
+                        src="./assets/img/hero.svg" 
+                        alt="Radar de compatibilidade Talent Catcher conectando candidatos e vagas com base nas habilidades" 
+                        class="hero-image"
+                        width="800"
+                        height="600"
+                        loading="eager"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="principal">
 
         <section id="candidato" class="section-card">
             <div class="section-header">
@@ -157,8 +190,8 @@
                             <span>Índice de Compatibilidade</span>
                             <span>60.0%</span>
                         </div>
-                        <div class="progress-track" role="progressbar" aria-valuenow="60.0" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar media" style="width: 60%;"></div>
+                        <div class="progress-track" role="progressbar">
+                            <div class="progress-bar media" style="width: 70%;"></div>
                         </div>
                     </div>
 

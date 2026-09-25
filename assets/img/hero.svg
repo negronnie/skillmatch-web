@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Gradientes de Marca -->
+    <linearGradient id="hero-cyan-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="50%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#6366F1" />
+    </linearGradient>
+
+    <linearGradient id="hero-purple-blue" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+
+    <!-- Gradientes de Fundo dos Cards (Glassmorphism sutil) -->
+    <linearGradient id="card-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Glows e Radiais -->
+    <radialGradient id="center-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="sweep-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0" />
+    </radialGradient>
+
+    <filter id="glow-bright" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Animação do Feixe do Radar -->
+    <style>
+      @keyframes pulseRing {
+        0% { r: 50px; opacity: 0.8; }
+        100% { r: 160px; opacity: 0; }
+      }
+      @keyframes radarRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -40; }
+      }
+      .anim-pulse {
+        animation: pulseRing 3s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+        transform-origin: 400px 300px;
+      }
+      .anim-pulse-delayed {
+        animation: pulseRing 3s cubic-bezier(0.2, 0.8, 0.4, 1) infinite 1.5s;
+        transform-origin: 400px 300px;
+      }
+      .anim-spin {
+        animation: radarRotate 12s linear infinite;
+        transform-origin: 400px 300px;
+      }
+      .stream-line {
+        stroke-dasharray: 6 6;
+        animation: dashFlow 1.8s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- ================= FUNDO / BASE RADIAL ================= -->
+  <!-- Brilho de Fundo -->
+  <circle cx="400" cy="300" r="280" fill="url(#center-glow)" />
+
+  <!-- ================= ANÉIS DO RADAR (CATCHER) ================= -->
+  <!-- Ondas Expansivas (Match Pulses) -->
+  <circle cx="400" cy="300" r="80" fill="none" stroke="#22D3EE" stroke-width="2" class="anim-pulse" />
+  <circle cx="400" cy="300" r="80" fill="none" stroke="#3B82F6" stroke-width="1.5" class="anim-pulse-delayed" />
+
+  <!-- Círculos de Órbita / Comparação -->
+  <circle cx="400" cy="300" r="180" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.2" />
+
+  <!-- ================= CONEXÕES VAGA <-> MATCH <-> CANDIDATO ================= -->
+  <!-- Conexão Esquerda (Vaga para o Centro) -->
+  <path d="M 270 240 C 330 240, 340 300, 400 300" fill="none" stroke="#6366F1" stroke-width="2.5" class="stream-line" opacity="0.8" />
+  <!-- Conexão Direita (Candidato para o Centro) -->
+  <path d="M 530 360 C 470 360, 460 300, 400 300" fill="none" stroke="#06B6D4" stroke-width="2.5" class="stream-line" opacity="0.8" />
+
+  <!-- ================= ELEMENTO ESQUERDA: A VAGA (JOB) ================= -->
+  <g transform="translate(100, 180)">
+    <!-- Container Principal Card -->
+    <rect width="180" height="110" rx="16" fill="url(#card-bg)" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Header Card -->
+    <circle cx="30" cy="32" r="14" fill="#6366F1" fill-opacity="0.15" />
+    <!-- Ícone Pasta / Job -->
+    <path d="M 23 30 L 26 26 L 34 26 L 37 30 L 37 37 L 23 37 Z" fill="none" stroke="#818CF8" stroke-width="1.8" stroke-linejoin="round" />
+    
+    <text x="52" y="28" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#F8FAFC">Vaga Aberta</text>
+    <text x="52" y="42" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8">Requisitos &amp; Stack</text>
+
+    <!-- Tags / Requisitos -->
+    <rect x="18" y="60" width="62" height="20" rx="6" fill="#1E293B" stroke="#475569" stroke-width="1" />
+    <text x="26" y="74" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">Backend</text>
+
+    <rect x="86" y="60" width="76" height="20" rx="6" fill="#1E293B" stroke="#475569" stroke-width="1" />
+    <text x="94" y="74" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">Engenharia</text>
+
+    <!-- Indicador de Saída -->
+    <circle cx="170" cy="60" r="5" fill="#6366F1" />
+  </g>
+
+  <!-- ================= ELEMENTO DIREITA: O TALENTO (CANDIDATO) ================= -->
+  <g transform="translate(520, 310)">
+    <!-- Container Principal Card -->
+    <rect width="180" height="110" rx="16" fill="url(#card-bg)" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Header Card -->
+    <circle cx="30" cy="32" r="14" fill="#06B6D4" fill-opacity="0.15" />
+    <!-- Ícone Usuário / Perfil -->
+    <circle cx="30" cy="28" r="4.5" fill="none" stroke="#22D3EE" stroke-width="1.8" />
+    <path d="M 23 38 C 23 34, 37 34, 37 38" fill="none" stroke="#22D3EE" stroke-width="1.8" stroke-linecap="round" />
+
+    <text x="52" y="28" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#F8FAFC">Top Talento</text>
+    <text x="52" y="42" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8">Perfil Qualificado</text>
+
+    <!-- Score Badge de Match -->
+    <rect x="18" y="60" width="144" height="24" rx="8" fill="#064E3B" fill-opacity="0.4" stroke="#059669" stroke-width="1" />
+    <circle cx="30" cy="72" r="4" fill="#10B981" />
+    <text x="40" y="76" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#34D399">98% de Compatibilidade</text>
+
+    <!-- Indicador de Saída -->
+    <circle cx="10" cy="50" r="5" fill="#22D3EE" />
+  </g>
+
+  <!-- ================= CENTRO: O MATCH / TALENT CATCHER ================= -->
+  <!-- Núcleo de Concentração e Processamento -->
+  <g transform="translate(400, 300)">
+    <!-- Base Sólida com Efeito Radar -->
+    <circle cx="0" cy="0" r="46" fill="#0F172A" stroke="#334155" stroke-width="2" />
+
+    <!-- Núcleo Luminoso (Match Concluído) -->
+    <circle cx="0" cy="0" r="9" fill="#22D3EE" filter="url(#glow-bright)" />
+    <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" />
+  </g>
+</svg>
