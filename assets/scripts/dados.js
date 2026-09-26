@@ -1,4 +1,9 @@
-import { Candidate, Opportunity, RemoteOpportunity, Skill } from "./motor";
+import { 
+    Candidate, 
+    Opportunity, 
+    RemoteOpportunity,
+    Skill 
+} from "./motor";
 
 const urlVagas = "./assets/data/vagas.json";
 

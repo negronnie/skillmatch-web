@@ -136,3 +136,24 @@ export function renderizarCardsVagas(results) {
     elementos.vagasGrid.appendChild(card);
   });
 }
+
+export function renderizarDestaqueMelhorVaga(bestResult) {
+  if (!bestResult) {
+    elementos.destaqueSection.classList.add("hidden");
+    return;
+  }
+
+  const opportunity = bestResult.opportunity;
+  const score = bestResult.score;
+  const compatibility = bestResult.compatibility;
+
+  elementos.destaqueTitle.textContent = `${opportunity.role} — ${opportunity.company}`;
+  elementos.destaqueSubtitulo.textContent = opportunity.getFormattedSummary();
+  elementos.destaqueScore.textContent = `${score.toFixed(1)}%`;
+  
+  elementos.destaqueBadge.textContent = compatibility;
+  elementos.destaqueBadge.className = `badge ${compatibility === "Alta" ? "badge-alta" : compatibility === "Média" ? "badge-media" : "badge-baixa"}`;
+
+  elementos.destaqueSugestao.textContent = studySubjectsSuggestion(bestResult);
+  elementos.destaqueSection.classList.remove("hidden");
+}
