@@ -1,3 +1,5 @@
+import { Skill } from "./motor";
+
 export const elementos = {
   form: document.getElementById("form-candidate"),
   inputNome: document.getElementById("candidate-name"),
@@ -36,7 +38,7 @@ if (opportunity.description) {
   descriptionHtml = `<p class="card-description">${opportunity.description}</p>`;
 }
 
-export function renderizarCardsVagas(results) {
+export function renderOpportunityCards(results) {
   elementos.vagasGrid.innerHTML = "";
 
   results.forEach((item) => {
@@ -137,7 +139,7 @@ export function renderizarCardsVagas(results) {
   });
 }
 
-export function renderizarDestaqueMelhorVaga(bestResult) {
+export function renderBestMatch(bestResult) {
   if (!bestResult) {
     elementos.destaqueSection.classList.add("hidden");
     return;
@@ -156,4 +158,82 @@ export function renderizarDestaqueMelhorVaga(bestResult) {
 
   elementos.destaqueSugestao.textContent = studySubjectsSuggestion(bestResult);
   elementos.destaqueSection.classList.remove("hidden");
+}
+
+export function addSkillToGrid(nome, anos) {
+  if (!nome || !nome.trim()) return false;
+
+  const cleanName = nome.trim();
+  const cleanYears = Number(anos) > 0 
+    ? Number(anos)
+    : 1;
+
+  const nivel = new Skill(cleanName, cleanYears).experienceLevel();
+
+  const existentes = elementos.skillsGrid.querySelectorAll(".skill-item");
+
+  for (const item of existentes) {
+    if (item.skillName.toLowerCase() === cleanName.toLowerCase()) {
+      item.skillYears = cleanYears.toString();
+
+      const detail = item.querySelector(".skill-detail");
+      if (detail) {
+        detail.textContent = `${cleanYears} ano(s) • ${nivel}`;
+      }
+      return true;
+    }
+  }
+  
+  const skillCard = document.createElement("div");
+  skillCard.className = "skill-item";
+  skillCard.skillName = cleanName;
+  skillCard.skillYears = cleanYears.toString();
+
+  skillCard.innerHTML = `
+    <div class="skill-info">
+      <span class="skill-name">${cleanName}</span>
+      <span class="skill-detail">${cleanYears} ano(s) • ${nivel}</span>
+    </div>
+    <button type="button" class="btn-remove-skill" data-skill="${cleanName}">✕</button>
+  `;
+
+  elementos.skillsGrid.appendChild(skillCard);
+  return true;
+}
+
+export function getSkillFromGrid() {
+  const itens = elementos.skillsGrid.querySelectorAll(".skill-item");
+  const habilidades = [];
+
+  itens.forEach((item) => {
+    const nome = item.skillName;
+    const anos = Number(item.skillYears) || 1;
+    habilidades.push(new Skill(nome, anos));
+  });
+
+  return habilidades;
+}
+
+export function clearSkillGrid() {
+  elementos.skillsGrid.innerHTML = "";
+}
+
+export function fillProfileForm(candidate) {
+  if (!candidate) return;
+
+  elementos.inputNome.value = candidate.name || "";
+  elementos.selectArea.value = candidate.interestArea || "";
+  elementos.inputExp.value = candidate.experience || "";
+
+  clearSkillGrid();
+
+  candidate.skills.forEach((s) => {
+    addSkillToGrid(s.name, s.experienceYears);
+  });
+}
+
+export function updateSessionCounter(count) {
+  if (elementos.sessionCounter) {
+    elementos.sessionCounter.innerHTML = `Análises realizadas nesta sessão: <strong>${count}</strong>`;
+  }
 }
