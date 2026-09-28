@@ -1,16 +1,33 @@
 import {
+  Candidate,              // Classe que representa o candidato
+  buildResult,            // Função que calcula a compatibilidade entre candidato e todas as vagas
+  findBestOpportunity,    // Função que identifica a vaga de maior compatibilidade
   analysisCounter         // Função para contabilizar análises por sessão (closure)
 } from "./motor.js";
 
 import {
   elementos,                // Elementos HTML
+  renderBestMatch,          // Preenche a seção de destaque com a melhor vaga
   addSkillToGrid,           // Insere uma habilidade na grade do formulário
+  updateSessionCounter      // Atualiza o contador de análises
 } from "./ui.js";
 
 let catalogoVagas = [];
 let candidatoAtual = null;
 let resultadosAnalise = [];
 const registerAnalysis = analysisCounter();
+function analyze() {
+  if (!candidatoAtual || catalogoVagas.length === 0) return;
+
+  resultadosAnalise = buildResult(candidatoAtual, catalogoVagas);
+
+  const totalAnalises = registerAnalysis();
+  updateSessionCounter(totalAnalises);
+
+  const melhorOportunidade = findBestOpportunity(resultadosAnalise);
+  renderBestMatch(melhorOportunidade);
+
+}
 function setupEvents() {
   if (elementos.btnAddSkill) {
     elementos.btnAddSkill.addEventListener("click", () => {
