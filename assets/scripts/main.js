@@ -28,7 +28,8 @@ import {
   addSkillToGrid,           // Insere uma habilidade na grade do formulário
   getSkillFromGrid,         // Lê as habilidades
   clearSkillGrid,           // Limpa a lista de habilidades do formulário
-  updateSessionCounter      // Atualiza o contador de análises
+  updateSessionCounter,     // Atualiza o contador de análises
+  updateLogo                // Troca o logo conforme o tema
 } from "./ui.js";
 
 let catalogoVagas = [];
@@ -223,6 +224,7 @@ function setupEvents() {
       const isDark = document.body.classList.toggle("dark");
       const novoTema = isDark ? "escuro" : "claro";
       saveTheme(novoTema);
+      updateLogo(isDark);
 
       const themeText = elementos.btnThemeToggle.querySelector(".theme-text") || elementos.btnThemeToggle;
       if (themeText) {
@@ -245,4 +247,7 @@ function setupTheme() {
     document.body.classList.remove("dark");
     if (themeText) themeText.textContent = "Modo Escuro";
   }
+  updateLogo(temaSalvo === "escuro");
 }
+
+document.addEventListener("DOMContentLoaded", start);

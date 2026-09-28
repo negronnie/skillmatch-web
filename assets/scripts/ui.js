@@ -13,6 +13,7 @@ export const elementos = {
 
   btnLimparPerfil: document.getElementById("btn-clear-profile"),
   btnThemeToggle: document.getElementById("btn-theme"),
+  logo: document.querySelector(".brand .logo"),
 
   statusContainer: document.getElementById("status-container"),
   statusMessage: document.getElementById("status-message"),
@@ -288,7 +289,7 @@ export function fillProfileForm(candidate) {
 
   elementos.inputNome.value = candidate.name || "";
   elementos.selectArea.value = candidate.interestArea || "";
-  elementos.inputExp.value = candidate.experience || "";
+  elementos.inputExp.value = candidate.experience ?? "";
 
   clearSkillGrid();
 
@@ -299,6 +300,14 @@ export function fillProfileForm(candidate) {
 
 export function updateSessionCounter(count) {
   if (elementos.sessionCounter) {
-    elementos.sessionCounter.innerHTML = `Análises realizadas nesta sessão: <strong>${count}</strong>`;
+    elementos.sessionCounter.innerHTML = `Análises: <strong>${count}</strong>`;
+  }
+}
+
+export function updateLogo(isDark) {
+  if (elementos.logo) {
+    elementos.logo.src = isDark
+      ? "./assets/img/logo-full-dark.svg"
+      : "./assets/img/logo-full.svg";
   }
 }
