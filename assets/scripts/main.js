@@ -7,6 +7,7 @@ import {
 
 import {
   elementos,                // Elementos HTML
+  renderOpportunityCards,   // Monta a lista de cards de todas as vagas analisadas
   renderBestMatch,          // Preenche a seção de destaque com a melhor vaga
   addSkillToGrid,           // Insere uma habilidade na grade do formulário
   updateSessionCounter      // Atualiza o contador de análises
@@ -16,6 +17,23 @@ let catalogoVagas = [];
 let candidatoAtual = null;
 let resultadosAnalise = [];
 const registerAnalysis = analysisCounter();
+
+function renderInitialCatalog() {
+  const vagasIniciais = catalogoVagas.map((vaga) => ({
+    opportunity: vaga,
+    score: 0,
+    compatibility: "Baixa",
+    matchedSkills: [],
+    missingSkills: (vaga.skills || []).map((s) => ({
+      skillName: s.skillName,
+      minExperienceLevel: s.minExperienceLevel,
+      reason: "missing"
+    }))
+  }));
+
+  renderOpportunityCards(vagasIniciais);
+}
+
 function analyze() {
   if (!candidatoAtual || catalogoVagas.length === 0) return;
 
