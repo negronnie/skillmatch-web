@@ -24,10 +24,9 @@ export async function loadOpportunities() {
                 item.skills,
                 item.level,
                 item.salary,
-                item.timezone
-            )
                 item.timezone,
                 item.description
+            );
         }
         return new Opportunity(
             item.id,
@@ -36,11 +35,10 @@ export async function loadOpportunities() {
             item.skills,
             item.level,
             item.salary,
-            item.modality
-        )
-    })
             item.modality,
             item.description
+        );
+    });
 }
 
 const profileKey = "skillmatch.profile";
@@ -73,7 +71,7 @@ export function loadProfile() {
 
         const listSkills = parsedData.skills.map((sk) => {
             new Skill(sk.name, sk.experienceYears)
-        })
+        )
 
         return new Candidate(
             parsedData.name,
