@@ -7,6 +7,8 @@ import {
 
 import {
   elementos,                // Elementos HTML
+  showFieldError,           // Adiciona mensagem de erro em um input
+  clearFormErrors,          // Remove o estilo de erro do formulário
   renderOpportunityCards,   // Monta a lista de cards de todas as vagas analisadas
   renderBestMatch,          // Preenche a seção de destaque com a melhor vaga
   addSkillToGrid,           // Insere uma habilidade na grade do formulário
@@ -80,5 +82,60 @@ function setupEvents() {
       if (elementos.skillNameInput) elementos.skillNameInput.value = "";
       if (elementos.skillYearsInput) elementos.skillYearsInput.value = "";
       if (elementos.skillNameInput) elementos.skillNameInput.focus();
+    });
+  }
+
+  if (elementos.form) {
+    elementos.form.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      clearFormErrors();
+
+      let formularioValido = true;
+      let primeiroInvalido = null;
+
+      const nome = elementos.inputNome ? elementos.inputNome.value.trim() : "";
+      if (!nome || nome.length < 2) {
+        showFieldError("candidate-name", "Informe um nome válido com pelo menos 2 caracteres.");
+        formularioValido = false;
+        if (!primeiroInvalido) primeiroInvalido = elementos.inputNome;
+      }
+
+      const area = elementos.selectArea ? elementos.selectArea.value : "";
+      if (!area) {
+        showFieldError("candidate-area", "Selecione uma área de interesse profissional.");
+        formularioValido = false;
+        if (!primeiroInvalido) primeiroInvalido = elementos.selectArea;
+      }
+
+      const expVal = elementos.inputExp ? elementos.inputExp.value.trim() : "";
+      const expTotal = Number(expVal);
+      if (isNaN(expTotal) || expTotal < 0 || expVal === "") {
+        showFieldError("candidate-experience", "Informe um tempo de experiência total válido (>= 0).");
+        formularioValido = false;
+        if (!primeiroInvalido) primeiroInvalido = elementos.inputExp;
+      }
+
+      const habilidades = getSkillFromGrid();
+      if (habilidades.length === 0) {
+        const erroSkills = document.getElementById("erro-candidato-habilidades");
+        if (erroSkills) {
+          erroSkills.textContent = "Adicione pelo menos uma habilidade para que o cálculo de compatibilidade seja realizado.";
+        }
+        formularioValido = false;
+        if (!primeiroInvalido) primeiroInvalido = elementos.skillNameInput;
+      }
+
+      if (!formularioValido) {
+        if (primeiroInvalido && typeof primeiroInvalido.focus === "function") {
+          primeiroInvalido.focus();
+        }
+        return;
+      }
+
+      candidatoAtual = new Candidate(nome, area, habilidades, expTotal);
+
+      saveProfile(candidatoAtual);
+      analyze();
+
     });
   }

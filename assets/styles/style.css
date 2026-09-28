@@ -960,3 +960,28 @@ footer {
     font-size: 16px;
     font-weight: 500;
 }
+.status-box.status-empty {
+    background-color: var(--color-media-bg);
+    border-color: #fde68a;
+    color: var(--color-media);
+}
+
+.status-box.status-error {
+    background-color: var(--color-baixa-bg);
+    border-color: #fecaca;
+    color: var(--color-baixa);
+}
+
+.input-error {
+    border-color: var(--color-baixa) !important;
+    background-color: var(--color-baixa-bg);
+}
+
+.field-error {
+    color: var(--color-baixa);
+    font-size: 0.8rem;
+    font-weight: 500;
+    min-height: 1.1rem;
+    display: block;
+    margin-top: 4px;
+}
