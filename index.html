@@ -86,6 +86,7 @@
                         <div class="form-group full-flex bottom-flex">
                             <label for="candidate-name" class="form-label">Nome Completo</label>
                             <input type="text" id="candidate-name" class="form-input" placeholder="Ex: Lucas">
+                            <span id="erro-candidate-name" class="field-error"></span>
                         </div>
 
                         <div class="form-group full-flex bottom-flex">
@@ -97,12 +98,13 @@
                                 <option value="fullstack">Fullstack</option>
                                 <option value="ui-ux">UI/UX &amp; Design Systems</option>
                             </select>
+                            <span id="erro-candidate-area" class="field-error"></span>
                         </div>
 
                         <div class="form-group half-flex">
                             <label for="candidate-experience" class="form-label">Experiência Total (Anos)</label>
-                            <input type="number" id="candidade-experience" class="form-input" placeholder="Ex: 2">
                             <input type="number" id="candidate-experience" class="form-input" placeholder="Ex: 2" min="0" step="0.5">
+                            <span id="erro-candidate-experience" class="field-error"></span>
                         </div>
                     </div>
                 </fieldset>
@@ -116,8 +118,8 @@
                         </div>
 
                         <div class="form-group half-flex bottom-flex">
-                            <label for="candidate-area" class="form-label">Tempo de Experiência</label>
-                            <input type="number" id="candidade-experience" class="form-input" placeholder="Ex: 2">
+                            <label for="skill-years-input" class="form-label">Tempo de Experiência (Anos)</label>
+                            <input type="number" id="skill-years-input" class="form-input" placeholder="Ex: 2">
                         </div>
 
                         <div class="form-group half-flex bottom-flex">
@@ -125,7 +127,8 @@
                         </div>
                     </div>
 
-                    <div class="skills-grid" class="skills-grid"></div>
+                    <span id="erro-candidato-habilidades" class="field-error general-error"></span>
+
                     <div id="skills-grid" class="skills-grid"></div>
                 </fieldset>
 
