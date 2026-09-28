@@ -179,7 +179,7 @@ export function renderOpportunityCards(results) {
           <span>Índice de Match</span>
           <span>${score.toFixed(0)}%</span>
         </div>
-        <div class="progress-track" role="progressbar" aria-valuenow="${score.toFixed(1)}" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-track" role="progressbar">
           <div class="progress-bar ${barClass}" style="width: ${Math.max(score, 5)}%;"></div>
         </div>
       </div>

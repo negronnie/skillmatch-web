@@ -10,6 +10,8 @@ import {
   saveProfile,            // Guarda o perfil do candidato no localStorage
   loadProfile,            // Recupera o perfil persistido no localStorage
   clearProfile,           // Remove o perfil salvo no localStorage
+  saveTheme,              // Salva o tema no localStorage
+  loadTheme               // Lê o tema salvo no localStorage
 } from "./dados.js";
 
 import {
@@ -192,6 +194,12 @@ function setupEvents() {
       saveProfile(candidatoAtual);
       analyze();
 
+      if (elementos.destaqueSection) {
+        elementos.destaqueSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+
   if (elementos.btnLimparPerfil) {
     elementos.btnLimparPerfil.addEventListener("click", () => {
       clearProfile();
@@ -209,5 +217,32 @@ function setupEvents() {
 
     });
   }
+
+  if (elementos.btnThemeToggle) {
+    elementos.btnThemeToggle.addEventListener("click", () => {
+      const isDark = document.body.classList.toggle("dark");
+      const novoTema = isDark ? "escuro" : "claro";
+      saveTheme(novoTema);
+
+      const themeText = elementos.btnThemeToggle.querySelector(".theme-text") || elementos.btnThemeToggle;
+      if (themeText) {
+        themeText.textContent = isDark ? "Modo Claro" : "Modo Escuro";
+      }
     });
   }
+}
+
+function setupTheme() {
+  const temaSalvo = loadTheme();
+  const themeText = elementos.btnThemeToggle 
+    ? (elementos.btnThemeToggle.querySelector(".theme-text") || elementos.btnThemeToggle) 
+    : null;
+
+  if (temaSalvo === "escuro") {
+    document.body.classList.add("dark");
+    if (themeText) themeText.textContent = "Modo Claro";
+  } else {
+    document.body.classList.remove("dark");
+    if (themeText) themeText.textContent = "Modo Escuro";
+  }
+}

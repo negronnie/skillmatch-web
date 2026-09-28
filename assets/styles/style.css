@@ -698,7 +698,7 @@ footer {
 .meta-pill.remote {
   border-color: #bfdbfe;
   color: var(--primary);
-  background-color: var(--primary-light);
+  background-color: var(--primary);
   font-weight: 600;
 }
 
@@ -949,6 +949,24 @@ footer {
     .hero-image {
         max-width: 1200px;
     }
+}
+
+body.dark {
+    --background: #0f172a;
+    --background-subtle: #1e293b;
+    --card: #1e293b;
+    --border: #334155;
+    --border-focus: #60a5fa;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --color-alta-bg: #064e3b;
+    --color-media-bg: #78350f;
+    --color-baixa-bg: #7f1d1d;
+}
+
+body.dark header {
+    background-color: var(--background);
+    border-bottom-color: var(--border);
 }
 
 .status-box {
