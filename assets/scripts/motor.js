@@ -63,6 +63,9 @@ export class Opportunity {
         this.description = description;
         this.remote = false;
     }
+
+    getFormattedSummary() {
+        return `${this.role} na empresa ${this.company} (${this.level})`;
     }
 }
 
@@ -78,6 +81,10 @@ export class RemoteOpportunity extends Opportunity {
         super(id, company, role, skills, level, salary, "Remoto", description);
         this.remote = true;
         this.timezone = timezone;
+    }
+
+    getFormattedSummary() {
+        return `${super.getFormattedSummary()} [Remoto - Fuso: ${this.timezone}]`;
     }
 }
 
