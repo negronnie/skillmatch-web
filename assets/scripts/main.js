@@ -14,6 +14,7 @@ import {
 
 import {
   elementos,                // Elementos HTML
+  showLoading,              // Exibe o carregamento do JSON
   showError,                // Exibe span de erro
   showEmpty,                // Exibe aviso de nenhum resultado encontrado
   clearStatus,              // Esconde e reseta o container de status
@@ -32,6 +33,35 @@ let catalogoVagas = [];
 let candidatoAtual = null;
 let resultadosAnalise = [];
 const registerAnalysis = analysisCounter();
+ 
+async function start() {
+  setupTheme();
+  setupEvents();
+
+  try {
+    showLoading("Carregando catálogo de oportunidades...");
+    catalogoVagas = await loadOpportunities();
+
+    if (!catalogoVagas || catalogoVagas.length === 0) {
+      showEmpty("Nenhuma vaga cadastrada no catálogo no momento.");
+      return;
+    }
+
+    clearStatus();
+
+    const perfilSalvo = loadProfile();
+    if (perfilSalvo) {
+      candidatoAtual = perfilSalvo;
+      fillProfileForm(candidatoAtual);
+      analyze();
+    } else {
+      renderInitialCatalog();
+    }
+  } catch (erro) {
+    console.log("Erro ao inicializar vagas:", erro);
+    showError("Não foi possível conectar ao catálogo de vagas. Verifique sua conexão e tente novamente.");
+  }
+}
 
 function renderInitialCatalog() {
   const vagasIniciais = catalogoVagas.map((vaga) => ({

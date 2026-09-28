@@ -960,6 +960,13 @@ footer {
     font-size: 16px;
     font-weight: 500;
 }
+
+.status-box.status-loading {
+    background-color: var(--background-subtle);
+    border-color: var(--primary);
+    color: var(--text-main);
+}
+
 .status-box.status-empty {
     background-color: var(--color-media-bg);
     border-color: #fde68a;
@@ -970,6 +977,22 @@ footer {
     background-color: var(--color-baixa-bg);
     border-color: #fecaca;
     color: var(--color-baixa);
+}
+
+.spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 .input-error {

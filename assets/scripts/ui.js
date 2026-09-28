@@ -31,9 +31,14 @@ export const elementos = {
 
 };
 
-let remoteClass = "";
-if (opportunity.remote) {
-  remoteClass = "remote";
+export function showLoading(mensagem = "Carregando catálogo de oportunidades...") {
+  if (elementos.statusContainer && elementos.statusMessage) {
+    elementos.statusContainer.className = "status-box status-loading";
+    elementos.statusContainer.classList.remove("hidden");
+    elementos.statusMessage.innerHTML = `<span class="spinner" aria-hidden="true"></span> <span>${mensagem}</span>`;
+  }
+}
+
 export function showError(mensagem) {
   if (elementos.statusContainer && elementos.statusMessage) {
     elementos.statusContainer.className = "status-box status-error";
