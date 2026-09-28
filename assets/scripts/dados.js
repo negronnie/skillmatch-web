@@ -3,7 +3,7 @@ import {
     Opportunity, 
     RemoteOpportunity,
     Skill 
-} from "./motor";
+} from "./motor.js";
 
 const urlVagas = "./assets/data/vagas.json";
 
@@ -26,6 +26,8 @@ export async function loadOpportunities() {
                 item.salary,
                 item.timezone
             )
+                item.timezone,
+                item.description
         }
         return new Opportunity(
             item.id,
@@ -37,6 +39,8 @@ export async function loadOpportunities() {
             item.modality
         )
     })
+            item.modality,
+            item.description
 }
 
 const profileKey = "skillmatch.profile";
@@ -47,8 +51,8 @@ export function saveProfile(candidate) {
         const parsedData = JSON.stringify({
             name: candidate.name,
             interestArea: candidate.interestArea,
-            skills: candidate.skills.map(
-                (sk) => ({
+            experience: candidate.experience,
+            skills: (candidate.skills).map((sk) => ({
                 name: sk.name,
                 experienceYears: sk.experienceYears
             }))
@@ -89,7 +93,6 @@ export function clearProfile() {
     } catch (error) {
         console.log("Erro ao limpar dados: ", error);
     }
-    
 }
 
 export function saveTheme(theme) {
