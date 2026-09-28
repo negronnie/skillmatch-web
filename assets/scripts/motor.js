@@ -44,21 +44,38 @@ export function compareLevels(levelA, levelB) {
     return levels.indexOf(levelA) - levels.indexOf(levelB);
 }
 
-class Opportunity {
-    constructor(id, company, role, skills, level, salary, modality) {
-        this.id = Number(id)
+export class Opportunity {
+    constructor(id,
+                company,
+                role,
+                skills = [],
+                level = "Júnior",
+                salary = null,
+                modality = "Presencial",
+                description = "") {
+        this.id = Number(id);
         this.company = company;
         this.role = role;
         this.skills = skills;
         this.level = level;
         this.salary = salary;
         this.modality = modality;
+        this.description = description;
+        this.remote = false;
+    }
     }
 }
 
 export class RemoteOpportunity extends Opportunity {
-    constructor(id, company, role, skills, level, salary, timezone) {
-        super(id, company, role, skills, level, salary);
+    constructor(id,
+                company,
+                role,
+                skills = [],
+                level = "Pleno",
+                salary = null,
+                timezone = "America/Sao_Paulo",
+                description = "") {
+        super(id, company, role, skills, level, salary, "Remoto", description);
         this.remote = true;
         this.timezone = timezone;
     }
