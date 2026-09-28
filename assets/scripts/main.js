@@ -21,8 +21,10 @@ import {
   clearFormErrors,          // Remove o estilo de erro do formulário
   renderOpportunityCards,   // Monta a lista de cards de todas as vagas analisadas
   renderBestMatch,          // Preenche a seção de destaque com a melhor vaga
+  fillProfileForm,          // Preenche os campos do formulário a partir de um perfil salvo
   addSkillToGrid,           // Insere uma habilidade na grade do formulário
   getSkillFromGrid,         // Lê as habilidades
+  clearSkillGrid,           // Limpa a lista de habilidades do formulário
   updateSessionCounter      // Atualiza o contador de análises
 } from "./ui.js";
 
@@ -96,6 +98,18 @@ function setupEvents() {
     });
   }
 
+  if (elementos.skillsGrid) {
+    elementos.skillsGrid.addEventListener("click", (e) => {
+      const btnRemover = e.target.closest(".btn-remove-skill");
+      if (btnRemover) {
+        const card = btnRemover.closest(".skill-item");
+        if (card) {
+          card.remove();
+        }
+      }
+    });
+  }
+
   if (elementos.form) {
     elementos.form.addEventListener("submit", (evento) => {
       evento.preventDefault();
@@ -148,5 +162,22 @@ function setupEvents() {
       saveProfile(candidatoAtual);
       analyze();
 
+  if (elementos.btnLimparPerfil) {
+    elementos.btnLimparPerfil.addEventListener("click", () => {
+      clearProfile();
+
+      if (elementos.form) elementos.form.reset();
+      clearFormErrors();
+      clearSkillGrid();
+
+      candidatoAtual = null;
+
+      if (elementos.destaqueSection) {
+        elementos.destaqueSection.classList.add("hidden");
+      }
+      renderInitialCatalog();
+
+    });
+  }
     });
   }

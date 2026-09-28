@@ -76,9 +76,6 @@ export function showFieldError(campoId, mensagem) {
   }
 }
 
-let descriptionHtml = "";
-if (opportunity.description) {
-  descriptionHtml = `<p class="card-description">${opportunity.description}</p>`;
 export function clearFormErrors() {
   const spansErro = document.querySelectorAll(".field-error");
   spansErro.forEach((span) => {
