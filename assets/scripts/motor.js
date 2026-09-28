@@ -27,7 +27,7 @@ export class Candidate {
     }
 
     getSkill(skillName) {
-        return this.skills.find(skill => skill.name === skillName);
+        return this.skills.find(skill => skill.name.toLowerCase() === skillName.toLowerCase());
     }
 
     matchRequirement(requirement) {
