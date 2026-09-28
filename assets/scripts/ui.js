@@ -14,8 +14,16 @@ export const elementos = {
   btnLimparPerfil: document.getElementById("btn-clear-profile"),
   btnThemeToggle: document.getElementById("btn-theme"),
 
+  statusContainer: document.getElementById("status-container"),
+  statusMessage: document.getElementById("status-message"),
 
-  vagasSection: document.getElementById("opportunities-section"),
+  destaqueSection: document.getElementById("destaque"),
+  destaqueTitle: document.getElementById("titulo-highlight"),
+  destaqueSubtitulo: document.getElementById("highlight-subtitulo"),
+  destaqueScore: document.getElementById("highlight-score"),
+  destaqueBadge: document.getElementById("highlight-badge"),
+  destaqueSugestao: document.getElementById("highlight-sugestao"),
+
   vagasSection: document.getElementById("vagas"),
   vagasGrid: document.getElementById("opportunities-grid"),
 
