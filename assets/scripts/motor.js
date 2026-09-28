@@ -154,7 +154,7 @@ export function buildResult(candidate, opportunities) {
             opportunity: opportunity,
             score: score,
             compatibility: classifyCompatibility(score),
-            matchedSkills: listMatchedSkills(candidate, opportunities),
+            matchedSkills: listMatchedSkills(candidate, opportunity),
             missingSkills: listMissingSkills(candidate, opportunity)
         }
     })
@@ -203,15 +203,3 @@ export function analysisCounter(){
         return counter;
     }
 }
-
-// function retrieveOpportunities(opportunities) {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             if(!opportunities || opportunities.length === 0) {
-//                 reject("Nenhuma vaga encontrada.");
-//             } else {
-//                 resolve(opportunities);
-//             }
-//         }, 3000);
-//     });
-// }
