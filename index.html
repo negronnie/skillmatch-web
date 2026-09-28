@@ -25,6 +25,7 @@
             </nav>
             <div class="actions">
                 <button id="btn-theme" class="btn-theme">Modo Escuro</button>
+                <button id="btn-theme" class="btn-theme"><span class="theme-text">Modo Escuro</span></button>
             </div>
         </div>
     </header>
@@ -101,6 +102,7 @@
                         <div class="form-group half-flex">
                             <label for="candidate-experience" class="form-label">Experiência Total (Anos)</label>
                             <input type="number" id="candidade-experience" class="form-input" placeholder="Ex: 2">
+                            <input type="number" id="candidate-experience" class="form-input" placeholder="Ex: 2" min="0" step="0.5">
                         </div>
                     </div>
                 </fieldset>
@@ -109,7 +111,7 @@
                     <legend class="form-legend">Habilidades e Tempo de Prática</legend>
                     <div class="form-row">
                         <div class="form-group full-flex bottom-flex">
-                            <label for="skill-name-input" class="form-label" >Tecnologia / Habilidade</label>
+                            <label for="skill-name-input" class="form-label">Tecnologia / Habilidade</label>
                             <input type="text" id="skill-name-input" class="form-input" autocomplete="off" placeholder="Ex: JavaScript, HTML, React, CSS, Git...">
                         </div>
 
@@ -124,6 +126,7 @@
                     </div>
 
                     <div class="skills-grid" class="skills-grid"></div>
+                    <div id="skills-grid" class="skills-grid"></div>
                 </fieldset>
 
                 <div class="form-actions">
@@ -138,6 +141,7 @@
         </section>
         
         <section id="destaque" class="highlight-section ">
+        <section id="destaque" class="highlight-section hidden">
             <div class="section-card">
                 <div class="highlight-header">
                     <h2 id="titulo-highlight" class="highlight-title">Vaga Destaque</h2>
@@ -167,55 +171,7 @@
                 </div>
             </div>
 
-            <div id="vagas-grid" class="opportunity-grid">
-                <!-- <article class="opportunity-card">
-                    <div class="card-top">
-                        <div>
-                            <span class="card-company">Mercado Livre</span>
-                            <h3 id="vaga-titulo" class="card-role">Front-End &amp; Design Systems</h3>
-                        </div>
-                        <span class="badge badge-media" title="Classificação de compatibilidade">Média</span>
-                    </div>
-
-                    <div class="card-meta-list">
-                        <span class="meta-pill remote">Remoto</span>
-                        <span class="meta-pill">Nível: Júnior</span>
-                        <span class="meta-pill">Fuso: America - São Paulo</span>
-                    </div>
-
-                    <div class="progress-container">
-                        <div class="progress-header">
-                            <span>Índice de Compatibilidade</span>
-                            <span>60.0%</span>
-                        </div>
-                        <div class="progress-track" role="progressbar">
-                            <div class="progress-bar media" style="width: 70%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="card-skills-block">
-                        <span class="skills-subheading">Habilidades Atendidas (3)</span>
-                        <div class="skills-pills">
-                            <span class="skill-pill matched" title="Atendido: Avançado">HTML (Avançado)</span>
-                            <span class="skill-pill matched" title="Atendido: Avançado">CSS (Avançado)</span>
-                            <span class="skill-pill matched" title="Atendido: Intermediário">JavaScript (Intermediário)</span>
-                        </div>
-                    </div>
-
-                    <div class="card-skills-block">
-                        <span class="skills-subheading">Habilidades Faltantes / Aprimorar (2)</span>
-                        <div class="skills-pills">
-                            <span class="skill-pill missing" title="Ausente: Requer Intermediário">UX-UI (Requer Intermediário)</span>
-                            <span class="skill-pill missing" title="Ausente: Requer Iniciante">Git (Requer Iniciante)</span>
-                        </div>
-                    </div>
-
-                    <div class="card-footer">
-                        <span class="card-salary">R$ 5.800,00</span>
-                        <span class="meta-pill">5 requisitos</span>
-                    </div>
-                </article> -->
-            </div>
+            <div id="opportunities-grid" class="opportunity-grid"></div>
 
         </section>
     </main>
