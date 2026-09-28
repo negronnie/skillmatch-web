@@ -34,16 +34,63 @@ export const elementos = {
 let remoteClass = "";
 if (opportunity.remote) {
   remoteClass = "remote";
+export function showError(mensagem) {
+  if (elementos.statusContainer && elementos.statusMessage) {
+    elementos.statusContainer.className = "status-box status-error";
+    elementos.statusContainer.classList.remove("hidden");
+    elementos.statusMessage.textContent = mensagem;
+  }
 }
 
-let timezoneHtml = "";
-if (opportunity.timezone) {
-  timezoneHtml = `<span class="meta-pill">Fuso: ${opportunity.timezone}</span>`;
+export function showEmpty(mensagem = "Nenhuma vaga encontrada para os critérios selecionados.") {
+  if (elementos.statusContainer && elementos.statusMessage) {
+    elementos.statusContainer.className = "status-box status-empty";
+    elementos.statusContainer.classList.remove("hidden");
+    elementos.statusMessage.textContent = mensagem;
+  }
+}
+
+export function clearStatus() {
+  if (elementos.statusContainer && elementos.statusMessage) {
+    elementos.statusContainer.className = "status-box hidden";
+    elementos.statusMessage.textContent = "";
+  }
+}
+
+export function showFieldError(campoId, mensagem) {
+  const ids = [
+    campoId,
+    campoId.replace("candidato-", "candidate-"),
+    campoId.replace("candidate-", "candidato-")
+  ];
+
+  for (const id of ids) {
+    const spanErro = document.getElementById(`erro-${id}`);
+    if (spanErro) {
+      spanErro.textContent = mensagem;
+    }
+    const input = document.getElementById(id);
+    if (input) {
+      input.classList.add("input-error");
+    }
+  }
 }
 
 let descriptionHtml = "";
 if (opportunity.description) {
   descriptionHtml = `<p class="card-description">${opportunity.description}</p>`;
+export function clearFormErrors() {
+  const spansErro = document.querySelectorAll(".field-error");
+  spansErro.forEach((span) => {
+    span.textContent = "";
+  });
+
+  if (elementos.form) {
+    const inputsComErro = elementos.form.querySelectorAll(".input-error");
+    inputsComErro.forEach((input) => {
+      input.classList.remove("input-error");
+    });
+  }
 }
 
 export function renderOpportunityCards(results) {

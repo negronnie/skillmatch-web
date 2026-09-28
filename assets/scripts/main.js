@@ -6,12 +6,23 @@ import {
 } from "./motor.js";
 
 import {
+  loadOpportunities,      // Busca as vagas no arquivo JSON
+  saveProfile,            // Guarda o perfil do candidato no localStorage
+  loadProfile,            // Recupera o perfil persistido no localStorage
+  clearProfile,           // Remove o perfil salvo no localStorage
+} from "./dados.js";
+
+import {
   elementos,                // Elementos HTML
+  showError,                // Exibe span de erro
+  showEmpty,                // Exibe aviso de nenhum resultado encontrado
+  clearStatus,              // Esconde e reseta o container de status
   showFieldError,           // Adiciona mensagem de erro em um input
   clearFormErrors,          // Remove o estilo de erro do formulário
   renderOpportunityCards,   // Monta a lista de cards de todas as vagas analisadas
   renderBestMatch,          // Preenche a seção de destaque com a melhor vaga
   addSkillToGrid,           // Insere uma habilidade na grade do formulário
+  getSkillFromGrid,         // Lê as habilidades
   updateSessionCounter      // Atualiza o contador de análises
 } from "./ui.js";
 
