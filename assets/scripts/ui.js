@@ -1,7 +1,7 @@
 import { Skill } from "./motor";
 
 export const elementos = {
-  form: document.getElementById("form-candidate"),
+  form: document.getElementById("form-candidato"),
   inputNome: document.getElementById("candidate-name"),
   selectArea: document.getElementById("candidate-area"),
   inputExp: document.getElementById("candidate-experience"),
@@ -10,7 +10,6 @@ export const elementos = {
   skillYearsInput: document.getElementById("skill-years-input"),
   btnAddSkill: document.getElementById("btn-add-skill"),
   skillsGrid: document.getElementById("skills-grid"),
-
 
   btnLimparPerfil: document.getElementById("btn-clear-profile"),
   btnThemeToggle: document.getElementById("btn-theme"),
@@ -39,7 +38,15 @@ if (opportunity.description) {
 }
 
 export function renderOpportunityCards(results) {
+  if (!elementos.vagasGrid) return;
   elementos.vagasGrid.innerHTML = "";
+
+  if (!results || results.length === 0) {
+    showEmpty();
+    return;
+  }
+
+  clearStatus();
 
   results.forEach((item) => {
     const opportunity = item.opportunity;
@@ -49,7 +56,7 @@ export function renderOpportunityCards(results) {
     const missingSkills = item.missingSkills;
 
     const card = document.createElement("article");
-    card.className = "vaga-card";
+    card.className = "opportunity-card";
 
     const badgeClass = compatibility === "Alta" 
       ? "badge-alta" : compatibility === "Média" 
