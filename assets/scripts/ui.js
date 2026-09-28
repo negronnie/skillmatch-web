@@ -30,6 +30,7 @@ export const elementos = {
 
   sessionCounter: document.getElementById("session-counter"),
 
+  sessionCounter: document.getElementById("session-counter")
 };
 
 export function showLoading(mensagem = "Carregando catálogo de oportunidades...") {
