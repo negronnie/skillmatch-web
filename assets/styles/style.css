@@ -531,6 +531,16 @@ main {
     margin-bottom: 18px;
 }
 
+.opportunities-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.opportunities-filters .form-group {
+    flex: 1 1 180px;
+}
+
 .highlight-section {
     margin-bottom: 24px;
 }
@@ -922,7 +932,7 @@ footer {
         flex-direction: row;
     }
 
-    .opportunity-header {
+    .opportunities-header {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-end;

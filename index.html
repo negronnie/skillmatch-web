@@ -174,6 +174,26 @@
                     <h2 id="titulo-vagas">Oportunidades Disponíveis</h2>
                     <p class="section-subtitle">Confira a análise de compatibilidade detalhada para cada vaga do catálogo.</p>
                 </div>
+
+                <div class="opportunities-filters">
+                    <div class="form-group">
+                        <label for="filtro-modalidade" class="form-label">Modalidade</label>
+                        <select id="filtro-modalidade" class="form-select">
+                            <option value="todas">Todas</option>
+                            <option value="remoto">Remoto</option>
+                            <option value="presencial">Presencial / Híbrido</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ordenacao-vagas" class="form-label">Ordenar por</label>
+                        <select id="ordenacao-vagas" class="form-select">
+                            <option value="score-desc">Maior compatibilidade</option>
+                            <option value="salario-desc">Maior salário</option>
+                            <option value="empresa-asc">Empresa (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
             <div id="opportunities-grid" class="opportunity-grid"></div>

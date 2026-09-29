@@ -67,7 +67,7 @@ async function start() {
 }
 
 function renderInitialCatalog() {
-  const vagasIniciais = catalogoVagas.map((vaga) => ({
+  resultadosAnalise = catalogoVagas.map((vaga) => ({
     opportunity: vaga,
     score: 0,
     compatibility: "Baixa",
@@ -79,7 +79,7 @@ function renderInitialCatalog() {
     }))
   }));
 
-  renderOpportunityCards(vagasIniciais);
+  applyFilter();
 }
 
 function analyze() {
@@ -93,7 +93,33 @@ function analyze() {
   const melhorOportunidade = findBestOpportunity(resultadosAnalise);
   renderBestMatch(melhorOportunidade);
 
+  applyFilter();
 }
+
+function applyFilter() {
+  if (!resultadosAnalise || resultadosAnalise.length === 0) return;
+
+  const modalidade = elementos.filtroModalidade ? elementos.filtroModalidade.value : "todas";
+  const ordenacao = elementos.ordenacaoVagas ? elementos.ordenacaoVagas.value : "score-desc";
+  let filtrados = [...resultadosAnalise];
+
+  if (modalidade === "remoto") {
+    filtrados = filtrados.filter((item) => item.opportunity.remote === true);
+  } else if (modalidade === "presencial") {
+    filtrados = filtrados.filter((item) => item.opportunity.remote === false);
+  }
+
+  if (ordenacao === "score-desc") {
+    filtrados.sort((a, b) => b.score - a.score);
+  } else if (ordenacao === "salario-desc") {
+    filtrados.sort((a, b) => (b.opportunity.salary || 0) - (a.opportunity.salary || 0));
+  } else if (ordenacao === "empresa-asc") {
+    filtrados.sort((a, b) => a.opportunity.company.localeCompare(b.opportunity.company));
+  }
+
+  renderOpportunityCards(filtrados);
+}
+
 function setupEvents() {
   if (elementos.btnAddSkill) {
     elementos.btnAddSkill.addEventListener("click", () => {
@@ -215,8 +241,14 @@ function setupEvents() {
         elementos.destaqueSection.classList.add("hidden");
       }
       renderInitialCatalog();
-
     });
+  }
+
+  if (elementos.filtroModalidade) {
+    elementos.filtroModalidade.addEventListener("change", applyFilter);
+  }
+  if (elementos.ordenacaoVagas) {
+    elementos.ordenacaoVagas.addEventListener("change", applyFilter);
   }
 
   if (elementos.btnThemeToggle) {

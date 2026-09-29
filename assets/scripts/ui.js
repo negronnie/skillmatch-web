@@ -28,7 +28,8 @@ export const elementos = {
   vagasSection: document.getElementById("vagas"),
   vagasGrid: document.getElementById("opportunities-grid"),
 
-  sessionCounter: document.getElementById("session-counter"),
+  filtroModalidade: document.getElementById("filtro-modalidade"),
+  ordenacaoVagas: document.getElementById("ordenacao-vagas"),
 
   sessionCounter: document.getElementById("session-counter")
 };

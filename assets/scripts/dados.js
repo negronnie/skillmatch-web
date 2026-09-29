@@ -69,7 +69,7 @@ export function loadProfile() {
         const parsedData = JSON.parse(rawData);
         if (!parsedData) return null;
 
-        const listSkills = parsedData.skills.map((sk) => {
+        const listSkills = (parsedData.skills || []).map((sk) =>
             new Skill(sk.name, sk.experienceYears)
         )
 
