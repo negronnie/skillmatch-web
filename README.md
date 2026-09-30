@@ -35,7 +35,7 @@ Facilita a comparação entre candidatos e vagas, indicando exatamente quais hab
 
 ### Como rodar
 Basta rodar o código usando o *live server*.
-Além disso, o site está disponível no GitHub Pages através deste [link]().
+Além disso, o site está disponível no GitHub Pages através deste [link](https://negronnie.github.io/skillmatch-web/).
 E também no [meu site](https://negronnie.com.br/sctec/projetom1/).
 
 ### Possíveis melhorias
