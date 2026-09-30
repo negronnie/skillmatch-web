@@ -21,7 +21,7 @@ Assim como no mini-projeto, sustentei a complexidade extra, que é o nível de s
 - Tagline/slogan: **Você compatível com o mercado!**
 - Cor Principal: **#6366F1**
 
-![Logo](https://raw.githubusercontent.com/negronnie/skillmatch-web/cfc923cf5a7b1a3a64c8e24f329e6f1838a0aa0d/assets/img/logo-full.svg?token=AF3K5KJWWPJHCCBKZZBRIW3KXOLQA)
+![Logo](https://raw.githubusercontent.com/negronnie/skillmatch-web/cfc923cf5a7b1a3a64c8e24f329e6f1838a0aa0d/assets/img/logo-full.svg)
 
 ### Problema que resolve
 Facilita a comparação entre candidatos e vagas, indicando exatamente quais habilidades são faltantes ou insuficientes para atender aos requisitos da vaga, gerando um percentual de compatibilidade e sugestões de estudo.
