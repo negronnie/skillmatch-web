@@ -11,7 +11,7 @@ Assim como no mini-projeto, sustentei a complexidade extra, que é o nível de s
 - [Kanban do Github](https://github.com/users/negronnie/projects/4)
 - [Link do Vídeo Explicativo (YouTube)]()
 - [Link do Vídeo Explicativo (Google Drive)]()
-- [Excalidraw]()
+- [Excalidraw](https://excalidraw.com/#json=gjmHDpMZmhiVgiMFWtfiy,jVjvwjoiPmzK7FyhR-CD2g)
 - [Lista de Issues](https://github.com/negronnie/skillmatch-web/issues?q=is%3Aissue)
 - [Lista de Pull Requests](https://github.com/negronnie/skillmatch-web/pulls?q=is%3Apr+state%3Aclosed)
 - [Lista de Branches](https://github.com/negronnie/skillmatch-web/branches)
@@ -21,7 +21,7 @@ Assim como no mini-projeto, sustentei a complexidade extra, que é o nível de s
 - Tagline/slogan: **Você compatível com o mercado!**
 - Cor Principal: **#6366F1**
 
-![Logo](https://raw.githubusercontent.com/negronnie/skillmatch-web/cfc923cf5a7b1a3a64c8e24f329e6f1838a0aa0d/assets/img/logo-full.svg?token=AF3K5KJWWPJHCCBKZZBRIW3KXOLQA)
+![Logo](https://raw.githubusercontent.com/negronnie/skillmatch-web/0980b715824fee6a4700866e66fbe6d4f838419b/assets/img/logo-full.svg)
 
 ### Problema que resolve
 Facilita a comparação entre candidatos e vagas, indicando exatamente quais habilidades são faltantes ou insuficientes para atender aos requisitos da vaga, gerando um percentual de compatibilidade e sugestões de estudo.
@@ -35,7 +35,7 @@ Facilita a comparação entre candidatos e vagas, indicando exatamente quais hab
 
 ### Como rodar
 Basta rodar o código usando o *live server*.
-Além disso, o site está disponível no GitHub Pages através deste [link]().
+Além disso, o site está disponível no GitHub Pages através deste [link](https://negronnie.github.io/skillmatch-web/).
 E também no [meu site](https://negronnie.com.br/sctec/projetom1/).
 
 ### Possíveis melhorias
