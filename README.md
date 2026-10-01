@@ -9,8 +9,8 @@ Assim como no mini-projeto, sustentei a complexidade extra, que é o nível de s
 ## Dados do Projeto
 
 - [Kanban do Github](https://github.com/users/negronnie/projects/4)
-- [Link do Vídeo Explicativo (YouTube)]()
-- [Link do Vídeo Explicativo (Google Drive)]()
+- [Link do Vídeo Explicativo (YouTube)](https://youtu.be/udPpRvRYBf4)
+- [Link do Vídeo Explicativo (Google Drive)](https://drive.google.com/file/d/1YrIbP-LiE7h-W-QZkrnT8l1KMYVp4y4N/view?usp=sharing)
 - [Excalidraw](https://excalidraw.com/#json=-kgAPX7vp-m5y14WSf3HD,CP7vR12ekzE8DfyZkP42PA)
 - [Lista de Issues](https://github.com/negronnie/skillmatch-web/issues?q=is%3Aissue)
 - [Lista de Pull Requests](https://github.com/negronnie/skillmatch-web/pulls?q=is%3Apr+state%3Aclosed)
