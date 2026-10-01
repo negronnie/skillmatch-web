@@ -40,6 +40,7 @@ const registerAnalysis = analysisCounter();
 async function start() {
   setupTheme();
   setupEvents();
+  setupLocalization();
 
   try {
     showLoading("Carregando catálogo de oportunidades...");
@@ -156,6 +157,16 @@ function setupEvents() {
       if (elementos.skillNameInput) elementos.skillNameInput.focus();
     });
   }
+
+  const adicionarPeloEnter = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (elementos.btnAddSkill) elementos.btnAddSkill.click();
+    }
+  };
+
+  if (elementos.skillNameInput) elementos.skillNameInput.addEventListener("keydown", adicionarPeloEnter);
+  if (elementos.skillYearsInput) elementos.skillYearsInput.addEventListener("keydown", adicionarPeloEnter);
 
   if (elementos.skillsGrid) {
     elementos.skillsGrid.addEventListener("click", (e) => {
@@ -281,5 +292,86 @@ function setupTheme() {
   }
   updateLogo(temaSalvo === "escuro");
 }
+
+function setupLocalization() {
+  if (!navigator.geolocation) {
+    console.error("Geolocalização não é suportada pelo seu navegador.");
+    return;
+  }
+
+  async function haveGeolocation(posicao) {
+    const latitude = posicao.coords.latitude;
+    const longitude = posicao.coords.longitude;
+
+    try {
+      const localizacao = await transformCoordinates(latitude, longitude);
+      const temperatura = await getWeather(latitude, longitude);
+      const descricoesClima = {
+        0: "Céu limpo",
+        1: "Predominantemente limpo",
+        2: "Parcialmente nublado",
+        3: "Nublado",
+        45: "Neblina",
+        48: "Neblina com geada",
+        51: "Garoa fraca",
+        53: "Garoa moderada",
+        55: "Garoa forte",
+        61: "Chuva fraca",
+        63: "Chuva moderada",
+        65: "Chuva forte",
+        71: "Neve fraca",
+        73: "Neve moderada",
+        75: "Neve forte",
+        80: "Pancadas de chuva fracas",
+        81: "Pancadas de chuva moderadas",
+        82: "Pancadas de chuva fortes",
+        95: "Trovoada",
+        96: "Trovoada com granizo fraco",
+        99: "Trovoada com granizo forte",
+      };
+
+      const cidade = localizacao.address.city;
+      const estado = localizacao.address.state;
+      const clima = descricoesClima[temperatura.current.weather_code] ?? "Desconhecido";
+      const tempAtual = `${temperatura.current.temperature_2m}°C`;
+      const geolocalizacao = `${cidade}, ${estado} - ${clima} (${tempAtual})`;
+
+      elementos.tempWrapper.textContent = geolocalizacao;
+    } catch (e) {
+      console.warn("Falha ao buscar endereço:", e);
+    }
+  }
+
+  async function transformCoordinates(lat, long) {
+    const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${long}&format=json`;
+    const response = await fetch(url);
+    return await response.json();
+  }
+
+  async function getWeather(lat, long) {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`;
+    const response = await fetch(url);
+    return await response.json();
+  }
+
+  function erro(err) {
+    switch (err.code) {
+      case err.PERMISSION_DENIED:
+        console.warn("Usuário recusou a solicitação de geolocalização.");
+        break;
+      case err.POSITION_UNAVAILABLE:
+        console.warn("Informações de localização indisponíveis.");
+        break;
+      case err.TIMEOUT:
+        console.warn("Tempo limite expirado ao buscar localização.");
+        break;
+      default:
+        console.warn("Erro desconhecido:", err.message);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition(haveGeolocation, erro);
+}
+
 
 document.addEventListener("DOMContentLoaded", start);

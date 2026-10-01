@@ -31,7 +31,8 @@ export const elementos = {
   filtroModalidade: document.getElementById("filtro-modalidade"),
   ordenacaoVagas: document.getElementById("ordenacao-vagas"),
 
-  sessionCounter: document.getElementById("session-counter")
+  sessionCounter: document.getElementById("session-counter"),
+  tempWrapper: document.getElementById("temperature")
 };
 
 export function showLoading(mensagem = "Carregando catálogo de oportunidades...") {
